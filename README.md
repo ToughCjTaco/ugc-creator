@@ -39,11 +39,23 @@ The script now targets Kling 3.0 and takes the face pack via `--element-frontal`
 
 ## Install
 
-Copy the `ugc-creator/` folder into your Claude Code skills directory:
+One command, into your global Claude Code skills directory:
 
-- **Per-project:** `<your-project>/.claude/skills/ugc-creator/`
-- **Global (all projects):** `~/.claude/skills/ugc-creator/`
-  (Windows: `C:\Users\<you>\.claude\skills\ugc-creator\`)
+**macOS / Linux:**
+```bash
+git clone https://github.com/0xAnni/ugc-creator.git ~/.claude/skills/ugc-creator
+```
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/0xAnni/ugc-creator.git $env:USERPROFILE\.claude\skills\ugc-creator
+```
+
+Or install per-project instead: clone (or copy the folder) into
+`<your-project>/.claude/skills/ugc-creator/`.
+
+No git? Download the zip: **Code → Download ZIP**, unzip, and put the
+`ugc-creator` folder in the same path.
 
 Claude Code auto-discovers it. The skill triggers on requests like *"make my AI
 influencer consistent,"* *"generate a week of UGC for my AI girl,"* or *"write a
