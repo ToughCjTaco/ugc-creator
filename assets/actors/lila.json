@@ -1,0 +1,27 @@
+{
+  "actor_id": "lila_v1",
+  "name": "Lila",
+  "origin": "Swedish",
+  "age_range": "21-23",
+  "face": "soft oval, high cheekbones, small straight nose, gentle rounded chin",
+  "eyes": "pale blue-grey, slightly hooded, left eye 2% smaller",
+  "skin_tone_hex": "#F8C4AE",
+  "skin_notes": "fair, rosy undertone, faint freckling across nose bridge, natural sun-kissed warmth on cheeks",
+  "hair": "golden blonde, natural wave, mid-chest length, center part",
+  "jawline": "delicate, soft, slightly asymmetric, left side a touch softer",
+  "distinguishing_marks": "small mole below right jaw, faint scar through left eyebrow, freckle on left collarbone",
+  "outfit_variations": [
+    "oversized cream knit sweater",
+    "tan triangle bikini with dainty gold chain",
+    "linen slip dress, sand colored",
+    "black athleisure set",
+    "white ribbed tank and denim shorts"
+  ],
+  "prompt_seed": 48217,
+  "voice_notes": "soft, warm, unhurried, faint Scandinavian lilt, breathy on close selfie shots",
+  "negative_defaults": [
+    "no heavy makeup",
+    "no visible tattoos",
+    "no over-whitened teeth"
+  ]
+}

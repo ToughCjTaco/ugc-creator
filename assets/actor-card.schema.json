@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UGC Actor Identity Card",
+  "description": "The single source of truth for a synthetic UGC influencer. Every shot prompt's character-lock layer is built verbatim from these fields. Precision here is what keeps the person consistent across generations.",
+  "type": "object",
+  "required": [
+    "actor_id",
+    "name",
+    "face",
+    "eyes",
+    "skin_tone_hex",
+    "hair",
+    "jawline",
+    "distinguishing_marks",
+    "prompt_seed"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable lowercase id, e.g. 'lila_v1'. Used as the filename and to reference the actor in briefs."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name used in briefs, e.g. 'Lila'."
+    },
+    "origin": {
+      "type": "string",
+      "description": "Ethnic/regional read that anchors features, e.g. 'Swedish', 'Brazilian', 'Korean'. Models default ambiguous faces toward a generic average; naming the origin prevents that."
+    },
+    "age_range": {
+      "type": "string",
+      "description": "Tight range, e.g. '21-23'. Keep it narrow; wide ranges drift."
+    },
+    "face": {
+      "type": "string",
+      "description": "Face shape + standout features, e.g. 'soft oval, high cheekbones, small straight nose, gentle rounded chin'."
+    },
+    "eyes": {
+      "type": "string",
+      "description": "Color + shape + a deliberate asymmetry, e.g. 'pale blue-grey, slightly hooded, left eye 2% smaller'. The asymmetry is intentional; it reads as a real individual."
+    },
+    "skin_tone_hex": {
+      "type": "string",
+      "pattern": "^#?[0-9A-Fa-f]{6}$",
+      "description": "EXACT hex value, e.g. '#F8C4AE'. Never a phrase like 'fair skin'; a phrase is re-interpretable and drifts, a hex compiles to the same skin every time."
+    },
+    "skin_notes": {
+      "type": "string",
+      "description": "Undertone + texture details, e.g. 'fair, rosy undertone, faint freckling across nose bridge'."
+    },
+    "hair": {
+      "type": "string",
+      "description": "Color + texture + length + part, e.g. 'golden blonde, natural wave, mid-chest length, center part'."
+    },
+    "jawline": {
+      "type": "string",
+      "description": "Shape + a deliberate asymmetry, e.g. 'delicate, soft, slightly asymmetric, left side a touch softer'."
+    },
+    "distinguishing_marks": {
+      "type": "string",
+      "description": "Moles/scars/freckles pinned to specific locations, e.g. 'small mole below right jaw, faint scar left eyebrow, freckle on left collarbone'. These are identity anchors; the model will try to remove them; keep them."
+    },
+    "outfit_variations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "A small wardrobe the actor cycles through, e.g. ['oversized cream knit', 'linen slip dress', 'athleisure set']."
+    },
+    "prompt_seed": {
+      "type": "integer",
+      "description": "A fixed integer seed to anchor generation across shots where the model supports seeds."
+    },
+    "voice_notes": {
+      "type": "string",
+      "description": "Optional. Voice direction for the audio layer, e.g. 'soft, warm, slight Scandinavian lilt, unhurried'."
+    },
+    "negative_defaults": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional. Per-actor additions to the standard negative prompt, e.g. ['no heavy makeup', 'no tattoos']."
+    }
+  }
+}

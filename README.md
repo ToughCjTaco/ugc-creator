@@ -1,0 +1,67 @@
+# ugc-creator
+
+A Claude Code **skill** that turns Claude into a hyper-realistic AI UGC influencer
+studio. Built by [@0x_Anni](https://x.com/0x_Anni); the full system, the economics,
+and the story behind it are in [the article](https://x.com/0x_Anni/status/2067776249485791496).
+
+If this saves you time, star the repo. It helps more builders find it. It treats a synthetic influencer as **data** (a JSON identity card) plus a
+deterministic **6-layer prompt assembler**, so the same person comes out in every
+shot instead of drifting between generations.
+
+> Don't prompt an AI influencer. **Compile one.**
+
+## What's inside
+
+```
+ugc-creator/
+├── SKILL.md                      # the skill: workflows + rules (this is what Claude reads)
+├── README.md                     # you are here
+├── assets/
+│   ├── actor-card.schema.json    # JSON schema for an actor identity card
+│   └── actors/
+│       └── lila.json             # a complete worked-example actor
+├── references/
+│   ├── identity-card.md          # how to build a consistent actor card
+│   ├── prompt-layers.md          # the 6-layer prompt assembler (the engine)
+│   ├── realism-anchors.md        # the 10 "imperfection" anchors that kill the AI look
+│   ├── camera-profiles.md        # 4 iPhone camera simulation profiles
+│   ├── shot-types.md             # 7 reusable UGC shot formats
+│   ├── video-kling.md            # Kling 3.0 motion rules + fal.ai pipeline
+│   └── reference-lock.md         # v2: the identity latch (face pack, cref/PuLID, Kling elements, LoRA)
+└── scripts/
+    └── generate_video.py         # image->video via Kling 3.0 on fal.ai (v3 elements)
+```
+
+**v2:** adds the reference-lock layer. The card kills prompt-side drift; the
+face pack + reference conditioning (cref / PuLID / InstantID for stills, Kling
+v3 `elements` for video, LoRA for permanent rosters) kills sampler-side drift.
+The script now targets Kling 3.0 and takes the face pack via `--element-frontal`.
+
+## Install
+
+Copy the `ugc-creator/` folder into your Claude Code skills directory:
+
+- **Per-project:** `<your-project>/.claude/skills/ugc-creator/`
+- **Global (all projects):** `~/.claude/skills/ugc-creator/`
+  (Windows: `C:\Users\<you>\.claude\skills\ugc-creator\`)
+
+Claude Code auto-discovers it. The skill triggers on requests like *"make my AI
+influencer consistent,"* *"generate a week of UGC for my AI girl,"* or *"write a
+Kling video prompt."*
+
+## Quickstart
+
+1. **Create an actor**: "Build me a UGC actor: Swedish, early 20s, beachy." Claude
+   writes an identity card to `assets/actors/`.
+2. **Generate a shot**: give a one-line brief:
+   `Lila, just out of the sea, wet hair, golden hour`
+   Claude returns a full positive + negative prompt to paste into your image model.
+3. **Generate a week**: give seven one-liners; the consistency protocol keeps her
+   the same person in every frame.
+4. **Animate**: feed a still + a motion prompt to `scripts/generate_video.py`
+   (needs `pip install fal-client` and a `FAL_KEY`).
+
+## The idea in one line
+
+Identity is a JSON schema, not a re-uploaded image, so consistency is
+deterministic instead of hopeful. Build the engine once; generate forever.
