@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f172a;
+  --color-foreground: #f1f5f9;
+  --color-primary: #3b82f6;
+  --color-primary-dark: #1e40af;
+  --color-secondary: #8b5cf6;
+  --color-border: #1e293b;
+  --color-surface: #1e293b;
+  --color-muted: #64748b;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  button {
+    @apply transition-colors duration-200;
+  }
+}
