@@ -1,0 +1,28 @@
+{
+  "actor_id": "saga_v1",
+  "name": "Saga",
+  "origin": "Swedish",
+  "age_range": "20-22",
+  "face": "oblong, soft Scandinavian features, high but gentle cheekbones, small straight nose, soft rounded chin",
+  "eyes": "sea-green, almond-shaped, left eye 2% smaller, bright and expressive",
+  "skin_tone_hex": "#E8B89E",
+  "skin_notes": "warm sun-kissed undertone, light freckling across nose bridge and upper cheekbones, natural glow suggesting time spent outdoors",
+  "hair": "honey blonde, loose natural waves, chest length with soft movement, subtle beachy texture, sun-lightened ends",
+  "jawline": "delicate, soft, slightly asymmetric, left side subtly softer",
+  "distinguishing_marks": "light freckles scattered across nose and cheekbones, faint scar through right eyebrow, small freckle on left collarbone",
+  "outfit_variations": [
+    "white bikini top with high-waisted linen shorts",
+    "oversized linen button-up shirt, undone",
+    "cream colored crochet beach cover-up",
+    "pastel blue slip dress",
+    "casual beach-wear crop top and denim"
+  ],
+  "prompt_seed": 72341,
+  "voice_notes": "breathy and approachable, light Scandinavian lilt, warm and unhurried, natural and conversational, perfect for intimate product reviews",
+  "negative_defaults": [
+    "no heavy makeup",
+    "no visible tattoos",
+    "no over-styled hair",
+    "no unnatural skin tone"
+  ]
+}
